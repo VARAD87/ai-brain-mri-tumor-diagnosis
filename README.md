@@ -69,6 +69,13 @@ ai-brain-mri-tumor-diagnosis/
 └── README.md
 
 
+##  Dataset
+The dataset used for training and evaluating this project is available on Kaggle:
+- **Dataset Name:** Brain Tumor MRI Dataset (7,023 images)
+- **Kaggle Link:** [https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
+- **Classes:** `Glioma`, `Meningioma`, `No Tumor`, `Pituitary`
+
+
 ---
 
 
