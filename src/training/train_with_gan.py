@@ -41,7 +41,7 @@ def main():
         print(f"Epoch [{epoch+1}/{epochs}] Loss: {total_loss/len(loader):.4f}")
 
     torch.save(model.state_dict(), "saved_models/cnn_gan_augmented.pth")
-    print("✅ GAN-Augmented CNN model saved!")
+    print(" GAN-Augmented CNN model saved!")
 
 
 if __name__ == "__main__":

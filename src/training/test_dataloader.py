@@ -1,5 +1,5 @@
 from torch.utils.data import DataLoader
-from kaggle_dataset import KaggleBrainMRIDataset
+from src.training.kaggle_dataset import KaggleBrainMRIDataset
 
 
 def main():

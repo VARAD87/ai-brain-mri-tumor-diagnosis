@@ -1,6 +1,6 @@
 import torch
-from models.cnn_baseline import CNNBaseline
-from kaggle_dataset import KaggleBrainMRIDataset
+from src.models.cnn_baseline import CNNBaseline
+from src.training.kaggle_dataset import KaggleBrainMRIDataset
 from torch.utils.data import DataLoader
 
 
