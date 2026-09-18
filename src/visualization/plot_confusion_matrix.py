@@ -68,7 +68,7 @@ def main():
 
     save_path = os.path.join(output_dir, "confusion_matrix.png")
     plt.savefig(save_path, dpi=300)
-    print(f"✅ Confusion matrix saved to: {save_path}")
+    print(f" Confusion matrix saved to: {save_path}")
 
     plt.show()
 
