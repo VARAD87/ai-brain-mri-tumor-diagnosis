@@ -29,7 +29,7 @@ class AugmentedBrainDataset(Dataset):
             for file in os.listdir(gan_dir):
                 self.samples.append((os.path.join(gan_dir, file), 0))
 
-        print("✅ Total samples with GAN augmentation:", len(self.samples))
+        print(" Total samples with GAN augmentation:", len(self.samples))
 
     def __len__(self):
         return len(self.samples)
