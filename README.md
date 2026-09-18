@@ -19,7 +19,7 @@ It is designed as a **Doctor Portal System** with a professional web interface a
 
 ---
 
-## 🛠 Technology Stack
+##  Technology Stack
 
 ### Programming & Frameworks
 - Python
