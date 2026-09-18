@@ -4,34 +4,33 @@ from fpdf import FPDF
 from datetime import datetime
 from src.app.ui_utils import inject_custom_css, render_header, render_card
 
-# Page layout setup
+
 st.set_page_config(page_title="Generate Report | Doctor Portal", layout="wide")
 
-# Inject styles
+
 inject_custom_css()
 
-# Render header
+
 render_header(
     title="Report Generation Center",
     subtitle="Compile clinical findings and segmentation masks into certified PDF documents"
 )
 
-# Enforce workflow order
+
 if "patient" not in st.session_state or "diagnosis" not in st.session_state:
-    st.warning("⚠️ Access Denied: Patient registration and MRI diagnostic analysis must be completed prior to report generation.")
+    st.warning(" Access Denied: Patient registration and MRI diagnostic analysis must be completed prior to report generation.")
     st.stop()
 
 patient = st.session_state["patient"]
 diag = st.session_state["diagnosis"]
 seg_image_path = st.session_state.get("segmentation_image")
 
-# Split layout: Left (Interactive Preview), Right (Actions & Settings)
+
 col_preview, col_action = st.columns([1.2, 0.8])
 
 with col_preview:
     st.markdown("### 🔍 Live Report Preview Draft")
     
-    # Create HTML content representing the diagnostic draft
     preview_html = f"""
     <div style="background-color: #0f172a; padding: 1.5rem; border-radius: 8px; border: 1px solid #1e293b; color: #e2e8f0; line-height: 1.6;">
         <div style="text-align: center; border-bottom: 2px solid #334155; padding-bottom: 0.75rem; margin-bottom: 1rem;">
@@ -70,7 +69,7 @@ with col_preview:
     
     st.markdown(preview_html, unsafe_allow_html=True)
     
-    # Show thumbnail of mask image if available
+    
     if seg_image_path and os.path.exists(seg_image_path):
         st.markdown("")
         st.image(seg_image_path, caption="Referenced Tumor Segmentation Slice", width=250)
@@ -95,7 +94,7 @@ with col_action:
             html_content=action_html
         )
         
-        # Action button
+        
         if st.button("📄 Generate Certified PDF"):
             with st.spinner("Compiling PDF assets and adding clinical signatures..."):
                 os.makedirs("reports/history", exist_ok=True)
@@ -104,7 +103,7 @@ with col_action:
                 pdf.set_auto_page_break(auto=True, margin=15)
                 pdf.add_page()
 
-                # -------- HEADER --------
+               
                 pdf.set_fill_color(240, 240, 240)
                 pdf.set_font("Arial", "B", 16)
                 pdf.cell(0, 10, "AI-Powered Brain MRI Diagnostic Report", ln=True, align="C")
@@ -143,17 +142,17 @@ with col_action:
 
                 pdf.ln(8)
 
-                # -------- SEGMENTATION IMAGE --------
+             
                 if seg_image_path and os.path.exists(seg_image_path):
                     pdf.set_font("Arial", "B", 13)
                     pdf.cell(0, 8, "Tumor Segmentation Result", ln=True)
                     pdf.ln(5)
 
-                    # Center image on page
+                    
                     pdf.image(seg_image_path, x=30, w=150)
                     pdf.ln(8)
 
-                # -------- CONCLUSION --------
+         
                 pdf.set_font("Arial", "B", 13)
                 pdf.cell(0, 8, "Conclusion", ln=True)
 
@@ -178,7 +177,7 @@ with col_action:
                 st.session_state["last_report_path"] = path
                 st.session_state["report_ready"] = True
 
-    # Show download module if successfully compiled
+ 
     if st.session_state.get("report_ready") and "last_report_path" in st.session_state:
         saved_path = st.session_state["last_report_path"]
         if os.path.exists(saved_path):
