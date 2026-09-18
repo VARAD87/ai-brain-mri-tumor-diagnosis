@@ -71,23 +71,5 @@ ai-brain-mri-tumor-diagnosis/
 
 ---
 
-## Setup Instructions (For Teammates)
 
-### 1️ Clone Repository
-```bash
-git clone https://github.com/escapist0411/ai-brain-mri-tumor-diagnosis.git
-cd ai-brain-mri-tumor-diagnosis
-2️ Create Virtual Environment
-python -m venv .venv
-
-3️ Activate Environment
-
-Windows (CMD / PowerShell):
-
-.venv\Scripts\activate
-
-4️ Install Dependencies
-pip install -r requirements.txt
-
-5️ Run Doctor Portal
 streamlit run app.py
