@@ -19,14 +19,14 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)
 
-    # Load dataset
+   
     dataset = MRISegmentationDataset("data/processed/kaggle/training")
     loader = DataLoader(dataset, batch_size=4, shuffle=True)
 
-    # Model
+   
     model = UNet().to(device)
 
-    # Loss + Optimizer
+  
     criterion = nn.BCELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 
@@ -59,7 +59,7 @@ def main():
 
     # Save model
     torch.save(model.state_dict(), "saved_models/unet_segmentation.pth")
-    print("✅ U-Net model saved to saved_models/unet_segmentation.pth")
+    print(" U-Net model saved to saved_models/unet_segmentation.pth")
 
 
 if __name__ == "__main__":
