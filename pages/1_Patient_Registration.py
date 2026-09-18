@@ -1,19 +1,18 @@
 import streamlit as st
 from src.app.ui_utils import inject_custom_css, render_header, render_card
 
-# Page configuration
+
 st.set_page_config(page_title="Patient Registration | Doctor Portal", layout="wide")
 
-# Inject custom styling
 inject_custom_css()
 
-# Render page header
+
 render_header(
     title="Patient Registration",
     subtitle="Add new patient records and clinical symptoms prior to diagnosis"
 )
 
-# Two column layout: Left (Form), Right (Active Patient Details)
+
 col_form, col_status = st.columns([1.2, 0.8])
 
 with col_form:
@@ -34,7 +33,7 @@ with col_form:
 
     if submit:
         if not name.strip():
-            st.error("⚠️ Patient Name cannot be blank.")
+            st.error(" Patient Name cannot be blank.")
         else:
             st.session_state["patient"] = {
                 "name": name,
@@ -42,10 +41,10 @@ with col_form:
                 "gender": gender,
                 "symptoms": symptoms if symptoms.strip() else "None reported"
             }
-            st.success("✅ Patient details registered successfully. Proceed to MRI Diagnosis page.")
+            st.success(" Patient details registered successfully. Proceed to MRI Diagnosis page.")
 
 with col_status:
-    st.markdown("### 🎫 Active Patient Record")
+    st.markdown("## Active Patient Record")
     
     if "patient" in st.session_state:
         p = st.session_state["patient"]
