@@ -26,7 +26,6 @@ def generate_medical_report(patient, diagnosis, image_path):
     styles = getSampleStyleSheet()
     elements = []
 
-    # -------- HEADER --------
     title = Paragraph(
         "<b>AI-Powered Brain MRI Tumor Diagnostic Report</b>",
         styles["Title"]
@@ -54,7 +53,6 @@ def generate_medical_report(patient, diagnosis, image_path):
     elements.append(Paragraph(patient_info, styles["Normal"]))
     elements.append(Spacer(1, 15))
 
-    # -------- INTRODUCTION --------
     elements.append(Paragraph("<b>Clinical Background</b>", styles["Heading2"]))
     elements.append(Spacer(1, 8))
 
@@ -67,7 +65,6 @@ def generate_medical_report(patient, diagnosis, image_path):
     elements.append(Paragraph(intro_text, styles["Normal"]))
     elements.append(Spacer(1, 15))
 
-    # -------- FINDINGS --------
     elements.append(Paragraph("<b>Diagnostic Findings</b>", styles["Heading2"]))
     elements.append(Spacer(1, 8))
 
@@ -79,7 +76,6 @@ def generate_medical_report(patient, diagnosis, image_path):
     elements.append(Paragraph(findings, styles["Normal"]))
     elements.append(Spacer(1, 15))
 
-    # -------- SEGMENTATION IMAGE --------
     elements.append(Paragraph("<b>Tumor Segmentation Result</b>", styles["Heading2"]))
     elements.append(Spacer(1, 10))
 
@@ -91,7 +87,6 @@ def generate_medical_report(patient, diagnosis, image_path):
     else:
         elements.append(Paragraph("Segmentation image not available.", styles["Normal"]))
 
-    # -------- CONCLUSION --------
     elements.append(Paragraph("<b>Conclusion</b>", styles["Heading2"]))
     elements.append(Spacer(1, 8))
 
