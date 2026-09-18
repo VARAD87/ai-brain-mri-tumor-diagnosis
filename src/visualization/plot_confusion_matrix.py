@@ -14,10 +14,9 @@ CLASS_NAMES = ["Glioma", "Meningioma", "No Tumor", "Pituitary"]
 
 
 def main():
-    # ---- DEBUG: show where Python is running from ----
+   
     print("Current working directory:", os.getcwd())
 
-    # ---- ENSURE output directory exists ----
     output_dir = os.path.join("reports", "figures")
     os.makedirs(output_dir, exist_ok=True)
 
