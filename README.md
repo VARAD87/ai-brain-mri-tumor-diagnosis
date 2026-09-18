@@ -5,17 +5,17 @@ It is designed as a **Doctor Portal System** with a professional web interface a
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-- ✅ Brain tumor **classification** (Glioma, Meningioma, Pituitary, No Tumor)
-- ✅ **GAN-based data augmentation** for improved robustness
-- ✅ **U-Net tumor segmentation** with Dice score evaluation
-- ✅ Professional **Doctor Portal (Streamlit)**
-- ✅ Tumor **confidence score**
-- ✅ **Tumor mask overlay visualization**
-- ✅ Automated **PDF diagnostic report generation**
-- ✅ **Report history management**
-- ✅ Fully offline (runs on local laptop)
+-  Brain tumor **classification** (Glioma, Meningioma, Pituitary, No Tumor)
+-  **GAN-based data augmentation** for improved robustness
+-  **U-Net tumor segmentation** with Dice score evaluation
+-  Professional **Doctor Portal (Streamlit)**
+-  Tumor **confidence score**
+-  **Tumor mask overlay visualization**
+-  Automated **PDF diagnostic report generation**
+-  **Report history management**
+-  Fully offline (runs on local laptop)
 
 ---
 
@@ -43,7 +43,7 @@ It is designed as a **Doctor Portal System** with a professional web interface a
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ai-brain-mri-tumor-diagnosis/
 │
@@ -71,23 +71,23 @@ ai-brain-mri-tumor-diagnosis/
 
 ---
 
-## ⚙️ Setup Instructions (For Teammates)
+## Setup Instructions (For Teammates)
 
-### 1️⃣ Clone Repository
+### 1️ Clone Repository
 ```bash
 git clone https://github.com/escapist0411/ai-brain-mri-tumor-diagnosis.git
 cd ai-brain-mri-tumor-diagnosis
-2️⃣ Create Virtual Environment
+2️ Create Virtual Environment
 python -m venv .venv
 
-3️⃣ Activate Environment
+3️ Activate Environment
 
 Windows (CMD / PowerShell):
 
 .venv\Scripts\activate
 
-4️⃣ Install Dependencies
+4️ Install Dependencies
 pip install -r requirements.txt
 
-5️⃣ Run Doctor Portal
+5️ Run Doctor Portal
 streamlit run app.py
