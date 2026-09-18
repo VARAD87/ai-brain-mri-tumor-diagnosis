@@ -3,13 +3,10 @@ import streamlit as st
 from datetime import datetime
 from src.app.ui_utils import inject_custom_css, render_header
 
-# Configure layout
 st.set_page_config(page_title="Report History | Doctor Portal", layout="wide")
 
-# Inject styles
 inject_custom_css()
 
-# Render header
 render_header(
     title="Report History & Archives",
     subtitle="Search and retrieve computer-generated patient diagnostic PDF files"
@@ -18,17 +15,16 @@ render_header(
 folder = "reports/history"
 os.makedirs(folder, exist_ok=True)
 
-# List all PDF reports in directory
 files = [f for f in os.listdir(folder) if f.endswith(".pdf")]
 
 if files:
-    # Search input for filter
+  
     search_query = st.text_input("🔍 Search reports by Patient Name", placeholder="Type patient name to filter...").strip().lower()
     
-    # Filter files
+
     filtered_files = []
     for f in files:
-        # Expected format: Patient_Name_YYYYMMDD_HHMMSS.pdf
+    
         name_part = f.rsplit("_", 2)[0]
         display_name = name_part.replace("_", " ")
         if not search_query or search_query in display_name.lower():
@@ -37,24 +33,24 @@ if files:
     st.markdown("### 🗃 Archived Reports")
     
     if filtered_files:
-        # Display each report in a grid layout
+      
         for file_name, display_name in filtered_files:
             file_path = os.path.join(folder, file_name)
             
-            # Extract timestamp from filename if matches format
+           
             try:
-                # e.g., Patient_Name_20231024_153022.pdf -> 20231024_153022
+               
                 parts = file_name.replace(".pdf", "").rsplit("_", 2)
                 date_str = parts[-2]
                 time_str = parts[-1]
                 dt = datetime.strptime(f"{date_str}_{time_str}", "%Y%m%d_%H%M%S")
                 date_formatted = dt.strftime("%d %B %Y, %I:%M %p")
             except Exception:
-                # Fallback to file creation time if filename format fails
+                
                 mtime = os.path.getmtime(file_path)
                 date_formatted = datetime.fromtimestamp(mtime).strftime("%d %B %Y, %I:%M %p")
 
-            # Layout for the file card: Left (details), Right (download action button)
+          
             col_details, col_button = st.columns([3, 1])
             
             with col_details:
@@ -69,7 +65,7 @@ if files:
                 )
                 
             with col_button:
-                # Read PDF bytes to enable download button
+              
                 with open(file_path, "rb") as f:
                     pdf_bytes = f.read()
                     
